@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location & Address Update Form</title>
+        <!-- Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header" role="banner">
+        <div class="header-inner">
+        <img src="charity_one_logo.png" alt="Charity One Logo" class="logo" onerror="this.style.display='none'"/>
+        </div>
+    </header>
+
+    <div class="divider-white" aria-hidden="true"></div>
+    <div class="divider-grey" aria-hidden="true"></div>
+
+    <div class="header-bottom">
+        <div class="subtitle"></div>
+    </div>
+
+    <!-- Form Title -->
+    <div class="form-title">
+        <h1 class="title" for="orgName">Location & Address Update Form</h1>
+    </div>
+
+<div class="container">
+  <form id="locForm" class="card">
+
+    <!-- 1 Org Name -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">1.</span> Organization Name <span style="color:#d64545">*</span></label>
+      <input type="text" name="orgName" id="orgName" class="answer" type="text" required aria-required="true" placeholder="Legal or operating name" />
+    </div>
+
+    <!-- 2 Type of Update -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">2.</span> What type of location update do you need? <span style="color:#d64545">*</span></label>
+      <div class="choice-group" id="updateTypeGroup">
+        <label class="choice-item"><input type="radio" name="updateType" value="correct"> Correct an existing address</label>
+        <label class="choice-item"><input type="radio" name="updateType" value="sqft"> Update square footage or usage</label>
+        <label class="choice-item"><input type="radio" name="updateType" value="add"> Add a new location</label>
+        <label class="choice-item"><input type="radio" name="updateType" value="remove"> Remove a location</label>
+        <label class="choice-item"><input type="radio" name="updateType" value="other"> Other</label>
+      </div>
+      <input class="answer hidden" id="otherExplain" placeholder="Explain..." />
+    </div>
+
+    <!-- 2A Corrections -->
+    <div class="section hidden" id="correctionsSection">
+      <label class="section-title"><span class="q-number"></span> What needs to be corrected?</label>
+      <div class="choice-group" id="correctionItems">
+        <label class="choice-item"><input type="checkbox" value="street"> Street address</label>
+        <label class="choice-item"><input type="checkbox" value="city"> City</label>
+        <label class="choice-item"><input type="checkbox" value="state"> State</label>
+        <label class="choice-item"><input type="checkbox" value="zip"> ZIP Code</label>
+        <label class="choice-item"><input type="checkbox" value="sqft"> Square footage</label>
+        <label class="choice-item"><input type="checkbox" value="usage"> Space usage</label>
+        <label class="choice-item"><input type="checkbox" value="sprinklers"> Sprinklers</label>
+        <label class="choice-item"><input type="checkbox" value="alarm"> Alarm system</label>
+        <label class="choice-item"><input type="checkbox" value="tenant"> Tenant improvements</label>
+        <label class="choice-item"><input type="checkbox" value="ai"> Additional insured</label>
+        <label class="choice-item"><input type="checkbox" value="other"> Other</label>
+      </div>
+      <input id="corrOther" class="answer hidden" placeholder="Explain..." />
+    </div>
+
+    <!-- 3 Which Location -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">3.</span> Which location is being updated? <span style="color:#d64545">*</span></label>
+      <select class="answer" id="locationSelect" name="locationSelect">
+        <option value="">-- Select --</option>
+        <option value="loc1">Location 1</option>
+        <option value="loc2">Location 2</option>
+        <option value="new">Add a new location</option>
+      </select>
+      <input id="newLocationName" class="answer hidden" placeholder="New location name" />
+    </div>
+
+    <!-- 4 Address -->
+    <div class="section hidden" id="addressSection">
+      <label class="section-title"><span class="q-number">4.</span> Updated or Corrected Address</label>
+      <input class="answer" id="addrStreet" placeholder="Street Address" />
+      <input class="answer" id="addrCity" placeholder="City" style="margin-top:6px;" />
+      <select class="answer" id="addrState" style="margin-top:6px;">
+        <option value="">-- State --</option>
+        <option>CA</option><option>TX</option><option>NY</option><option>FL</option>
+      </select>
+      <input class="answer" id="addrZip" placeholder="ZIP Code" style="margin-top:6px;" />
+    </div>
+
+    <!-- 5 Square Footage -->
+    <div class="section hidden" id="sqftSection">
+      <label class="section-title"><span class="q-number">5.</span> Square Footage</label>
+      <select class="answer" id="sqftSelect">
+        <option value="">-- select --</option>
+        <option>0–500</option><option>501–1,000</option><option>1,001–1,500</option>
+        <option>1,501–2,000</option><option>2,001–2,500</option><option>2,501–3,000</option>
+        <option>3,001–3,500</option><option>3,501–4,000</option><option>Over 4,000</option><option>Not sure</option>
+      </select>
+    </div>
+
+    <!-- 6 Usage -->
+    <div class="section hidden" id="usageSection">
+      <label class="section-title"><span class="q-number">6.</span> Space Usage (Occupancy)</label>
+      <select class="answer" id="usageSelect">
+        <option value="">-- select --</option>
+        <option>Office</option><option>Classrooms</option><option>Warehouse / Storage</option>
+        <option>Retail</option><option>Residential</option><option>Meeting / Community Space</option>
+        <option>Dining / Kitchen</option><option>Mixed Use</option><option value="other">Other</option>
+      </select>
+      <input id="usageOther" class="answer hidden" placeholder="Explain..." />
+    </div>
+
+    <!-- 7 Sprinklers -->
+    <div class="section hidden" id="sprinklerSection">
+      <label class="section-title"><span class="q-number">7.</span> Sprinklers</label>
+      <div class="choice-group">
+        <label class="choice-item"><input type="radio" name="sprinkler" value="yes"> Yes</label>
+        <label class="choice-item"><input type="radio" name="sprinkler" value="no"> No</label>
+        <label class="choice-item"><input type="radio" name="sprinkler" value="partial"> Partial</label>
+        <label class="choice-item"><input type="radio" name="sprinkler" value="ns"> Not sure</label>
+      </div>
+    </div>
+
+    <!-- 8 Alarm -->
+    <div class="section hidden" id="alarmSection">
+      <label cclass="section-title"><span class="q-number">8.</span> Alarm System</label>
+      <div class="choice-group">
+        <label class="choice-item"><input type="radio" name="alarm" value="fire"> Fire</label>
+        <label class="choice-item"><input type="radio" name="alarm" value="burg"> Burglar</label>
+        <label class="choice-item"><input type="radio" name="alarm" value="both"> Both</label>
+        <label class="choice-item"><input type="radio" name="alarm" value="none"> None</label>
+        <label class="choice-item"><input type="radio" name="alarm" value="ns"> Not sure</label>
+      </div>
+    </div>
+
+    <!-- 9 Effective Date -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">9.</span> Effective Date of Change <span style="color:#d64545">*</span></label>
+      <input type="date" class="answer" id="effDate" />
+    </div>
+
+    <!-- 10 Upload docs -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">10.</span> Upload documents (optional)</label>
+      <input class="answer" type="file" multiple id="docsUpload" />
+    </div>
+
+    <!-- 11 Contract (Required if Additional Insured) -->
+    <div class="section hidden" id="contractSection">
+      <label class="section-title"><span class="q-number">11.</span> Upload contract with insurance requirements <span style="color:#d64545">*</span></label>
+      <input class="answer" type="file" id="contractUpload" />
+    </div>
+
+    <!-- 12 Additional insured -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">12.</span> Additional Insured Information (optional)</label>
+      <input class="answer" id="aiInfo" placeholder="Type details..." />
+    </div>
+
+    <!-- 13 Notes -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">13.</span> Additional Notes (optional)</label>
+      <textarea placeholder="Your additional notes" class="answer" id="notes"></textarea>
+    </div>
+
+    <!-- 14 Confirm -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">14.</span> Confirmation <span style="color:#d64545">*</span></label>
+      <label class="choice-item"><input type="checkbox" id="agree"> I confirm that the information provided is accurate.</label>
+    </div>
+
+    <!-- 15 Signature -->
+    <div class="section">
+      <label class="section-title"><span class="q-number">15.</span> Signature (Full Name) <span style="color:#d64545">*</span></label>
+      <input placeholder="First and last name" class="answer" id="fullName" />
+    </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <div class="muted-small">Fields marked <span style="color:#d64545">*</span> are required</div>
+          <div style="display:flex;gap:10px;">
+            <button type="button" id="previewBtn" class="btn secondary small">Preview</button>
+            <button id="submitBtn" class="btn" type="submit">Submit</button>
+          </div>
+        </div>
+
+    <div id="statusMsg" class="message hidden"></div>
+  </form>
+
+     </div>
+   <!-- Preview Modal -->
+  <div id="previewModal" class="preview-modal hidden" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+    <div class="preview-dialog" role="document">
+      <header class="preview-header">
+        <h3 id="previewTitle">Review your answers</h3>
+        <button id="closePreview" class="preview-close" aria-label="Close preview">&times;</button>
+      </header>
+      <div class="preview-body" id="previewBody"></div>
+      <footer class="preview-footer">
+        <button id="editBtn" class="btn secondary">Back / Edit</button>
+        <button id="confirmSubmitBtn" class="btn">Confirm &amp; Submit</button>
+      </footer>
+    </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
