@@ -34,13 +34,13 @@
 
     <!-- 1 Org Name -->
     <div class="section">
-      <label class="section-title"><span class="q-number">1.</span> Organization Name <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">1.</span> Organization Name <span class="required-star">*</span></label>
       <input type="text" name="orgName" id="orgName" class="answer" type="text" required aria-required="true" placeholder="Legal or operating name" />
     </div>
 
     <!-- 2 Type of Update -->
     <div class="section">
-      <label class="section-title"><span class="q-number">2.</span> What type of location update do you need? <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">2.</span> What type of location update do you need? <span class="required-star">*</span></label>
       <div class="choice-group" id="updateTypeGroup">
         <label class="choice-item"><input type="radio" name="updateType" value="correct"> Correct an existing address</label>
         <label class="choice-item"><input type="radio" name="updateType" value="sqft"> Update square footage or usage</label>
@@ -72,7 +72,7 @@
 
     <!-- 3 Which Location -->
     <div class="section">
-      <label class="section-title"><span class="q-number">3.</span> Which location is being updated? <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">3.</span> Which location is being updated? <span class="required-star">*</span></label>
       <select class="answer" id="locationSelect" name="locationSelect">
         <option value="">-- Select --</option>
         <option value="loc1">Location 1</option>
@@ -130,7 +130,7 @@
 
     <!-- 8 Alarm -->
     <div class="section hidden" id="alarmSection">
-      <label cclass="section-title"><span class="q-number">8.</span> Alarm System</label>
+      <label class="section-title"><span class="q-number">8.</span> Alarm System</label>
       <div class="choice-group">
         <label class="choice-item"><input type="radio" name="alarm" value="fire"> Fire</label>
         <label class="choice-item"><input type="radio" name="alarm" value="burg"> Burglar</label>
@@ -142,7 +142,7 @@
 
     <!-- 9 Effective Date -->
     <div class="section">
-      <label class="section-title"><span class="q-number">9.</span> Effective Date of Change <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">9.</span> Effective Date of Change <span class="required-star">*</span></label>
       <input type="date" class="answer" id="effDate" />
     </div>
 
@@ -154,7 +154,7 @@
 
     <!-- 11 Contract (Required if Additional Insured) -->
     <div class="section hidden" id="contractSection">
-      <label class="section-title"><span class="q-number">11.</span> Upload contract with insurance requirements <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">11.</span> Upload contract with insurance requirements <span class="required-star">*</span></label>
       <input class="answer" type="file" id="contractUpload" />
     </div>
 
@@ -172,19 +172,19 @@
 
     <!-- 14 Confirm -->
     <div class="section">
-      <label class="section-title"><span class="q-number">14.</span> Confirmation <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">14.</span> Confirmation <span class="required-star">*</span></label>
       <label class="choice-item"><input type="checkbox" id="agree"> I confirm that the information provided is accurate.</label>
     </div>
 
     <!-- 15 Signature -->
     <div class="section">
-      <label class="section-title"><span class="q-number">15.</span> Signature (Full Name) <span style="color:#d64545">*</span></label>
+      <label class="section-title"><span class="q-number">15.</span> Signature (Full Name) <span class="required-star">*</span></label>
       <input placeholder="First and last name" class="answer" id="fullName" />
     </div>
 
         <!-- Actions -->
         <div class="actions">
-          <div class="muted-small">Fields marked <span style="color:#d64545">*</span> are required</div>
+          <div class="muted-small">Fields marked <span class="required-star">*</span> are required</div>
           <div style="display:flex;gap:10px;">
             <button type="button" id="previewBtn" class="btn secondary small">Preview</button>
             <button id="submitBtn" class="btn" type="submit">Submit</button>
