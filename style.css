@@ -130,7 +130,7 @@ label.question {
     font-family: var(--helvetica-font);
     font-size: var(--label-font-size);
     margin: 6px 0;
-    color: var(--dark-blue);
+    /* color: var(--dark-blue); */
 }
 
 .answer, textarea, select {
@@ -194,6 +194,10 @@ label.question {
     border-color: var(--gold);
     box-shadow: 0 0 0 6px rgba(201,164,74,0.10);
     outline: none;
+}
+
+.required-star {
+  color: #d64545 !important;
 }
 
  /* preview modal */
