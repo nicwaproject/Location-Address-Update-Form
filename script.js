@@ -198,16 +198,29 @@ prefillFromURL();
 ======================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".section-title").forEach(t => {
-    const clean = t.textContent.replace(/^\d+\.\s*/, "");
-    t.setAttribute("data-label", clean);
+    // Ambil HTML lengkap, lalu buang nomor lama yang berbentuk <span class="q-number">...</span> di depan (jika ada)
+    const raw = t.innerHTML.trim();
+
+    // Hapus leading q-number span jika ada (kasus: <span class="q-number">1.</span> ...)
+    const cleanHtml = raw.replace(/^\s*<span\s+class=["']q-number["'][^>]*>.*?<\/span>\s*/i, '');
+
+    // Simpan HTML bersih (termasuk <span class="required-star"> jika ada) ke data-label
+    t.setAttribute("data-label", cleanHtml);
   });
 
+  // panggil renumber setelah data-label tersimpan
   renumberVisibleQuestions();
 });
 
 /* ========================================================
    DYNAMIC NUMBERING BASED ON VISIBLE SECTIONS
 ======================================================== */
+// --- Generate data-label ---
+document.querySelectorAll('.section-title').forEach(t=>{
+  const clean = t.innerHTML.replace(/^\s*<span class="q-number">.*?<\/span>\s*/,'');
+  t.setAttribute('data-label', clean);
+});
+
 function renumberVisibleQuestions() {
   const secs = document.querySelectorAll(".section");
   let counter = 1;
@@ -219,11 +232,11 @@ function renumberVisibleQuestions() {
     const cleanLabel = title.getAttribute("data-label");
 
     if (!sec.classList.contains("hidden")) {
-      title.textContent = `${counter}. ${cleanLabel}`;
+      title.innerHTML = `<span class="q-number">${counter}.</span> ${cleanLabel}`;
       counter++;
     } else {
-      // keep the original label without numbering
-      title.textContent = cleanLabel;
+      // KEEP HTML (not text)
+      title.innerHTML = cleanLabel;
     }
   });
 }
